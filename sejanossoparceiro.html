@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Nosso Parceiro - Água Saquá</title>
+    <link rel="stylesheet" href="src/estilos.css">
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/responsivo.css">
+</head>
+<body>
+    <header class="gradiente-header">
+        <h1>Água Saquá</h1>
+    </header>
+    <nav>
+        <a href="index.html">Nossa História</a>
+        <a href="sejanossoparceiro.html">Seja nosso parceiro</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <section>
+        <h2>Nossos Parceiros</h2>
+        <div class="parceiros-container">
+            <div class="parceiros">
+                <div class="parceiro" onclick="openModal('src/imagens/parceria1.png')">
+                    <img src="src/imagens/parceria1.png" alt="Parceiro 1">
+                    <p>Descrição do parceiro 1</p>
+                </div>
+                <div class="parceiro" onclick="openModal('src/imagens/parceria2.png')">
+                    <img src="src/imagens/parceria2.png" alt="Parceiro 2">
+                    <p>Descrição do parceiro 2</p>
+                </div>
+                <div class="parceiro" onclick="openModal('src/imagens/parceria3.png')">
+                    <img src="src/imagens/parceria3.png" alt="Parceiro 3">
+                    <p>Descrição do parceiro 3</p>
+                </div>
+                <div class="parceiro" onclick="openModal('src/imagens/parceria4.png')">
+                    <img src="src/imagens/parceria4.png" alt="Parceiro 4">
+                    <p>Descrição do parceiro 4</p>
+                </div>
+                <div class="parceiro" onclick="openModal('src/imagens/parceria5.png')">
+                    <img src="src/imagens/parceria5.png" alt="Parceiro 5">
+                    <p>Descrição do parceiro 5</p>
+                </div>
+                <div class="parceiro" onclick="openModal('src/imagens/parceria6.png')">
+                    <img src="src/imagens/parceria6.png" alt="Parceiro 6">
+                    <p>Descrição do parceiro 6</p>
+                </div>
+                <div class="parceiro">
+                    <div class="video-container">
+                        <video id="video1" controls>
+                            <source src="src/videos/video2.mp4" type="video/mp4">
+                            <source src="src/videos/video2.mkv" type="video/mkv">
+                            <source src="src/videos/video2.webm" type="video/webm">
+                            <source src="src/videos/video2.ogv" type="video/ogg">
+                            <source src="src/videos/video2.avi" type="video/avi">
+                            <source src="src/videos/video2.mov" type="video/mov">
+                            Seu navegador não suporta o elemento de vídeo.
+                        </video>
+                        <div class="video-overlay" onclick="toggleVideo('video1')">
+                            <div class="video-overlay-content" onclick="toggleFullscreen('video1')">Clique para reproduzir e ampliar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="parceiro">
+                    <div class="video-container">
+                        <video id="video2" controls>
+                            <source src="src/videos/video3.mp4" type="video/mp4">
+                            <source src="src/videos/video3.mkv" type="video/mkv">
+                            <source src="src/videos/video3.webm" type="video/webm">
+                            <source src="src/videos/video3.ogv" type="video/ogg">
+                            <source src="src/videos/video3.avi" type="video/avi">
+                            <source src="src/videos/video3.mov" type="video/mov">
+                            Seu navegador não suporta o elemento de vídeo.
+                        </video>
+                        <div class="video-overlay" onclick="toggleVideo('video2')">
+                            <div class="video-overlay-content" onclick="toggleFullscreen('video2')">Clique para reproduzir e ampliar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal -->
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Água Saquá. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para abrir e fechar o modal com imagem -->
+    <script>
+        function openModal(src) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById('modalImg');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        function toggleVideo(videoId) {
+            var video = document.getElementById(videoId);
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function toggleFullscreen(videoId) {
+            var video = document.getElementById(videoId);
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
